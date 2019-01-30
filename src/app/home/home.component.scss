@@ -1,8 +1,16 @@
-#movieTable {
-	th {
-		padding: 0px 10px;
-	}	
-	td {
-		padding: 0px 10px;
+#movieTableContainer {
+	margin: 0 auto;
+	display: table;
+	#movieTable {
+		th {
+			padding: 0px 10px;
+		}	
+		td {
+			padding: 0px 10px;
+		}
+	}
+	#clickMeBtn {
+		display: block;
+		margin: 0 auto;
 	}
 }
