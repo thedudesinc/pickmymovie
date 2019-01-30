@@ -12,4 +12,8 @@ export class HomeComponent implements OnInit {
 	ngOnInit() {
 	}
 
+	onClickMeButtonClicked(): void {
+		alert("Uh oh! I've been clicked!");
+	}
+
 }
