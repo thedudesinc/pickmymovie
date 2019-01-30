@@ -10,7 +10,7 @@ import { Movie } from '../core/models/movie';
 export class HomeComponent implements OnInit {
 
 	movieList: Movie[] = [];
-	columnsToDisplay = ['title', 'releaseDate', 'genre', 'advocator'];
+	columnsToDisplay = ['title', 'releaseDate', 'genre', 'advocate'];
 
 	constructor() { 
 		this.movieList = [
