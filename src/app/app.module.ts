@@ -1,10 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { HomeComponent } from './home/home.component';
 import { AppRouting } from './app.routing';
+import { CustomMaterialModule } from './custommaterial.module';
 
 @NgModule({
 	declarations: [
@@ -14,7 +16,9 @@ import { AppRouting } from './app.routing';
 	imports: [
 		BrowserModule,
 		CoreModule,
-		AppRouting
+		AppRouting,
+		BrowserAnimationsModule,
+		CustomMaterialModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]
