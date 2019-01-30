@@ -1,0 +1,32 @@
+[
+	{
+		"title": "Die Hard",
+		"releaseDate": 2011,
+		"genre": "Action",
+		"advocate": "Nate"
+	},
+	{
+		"title": "Endangered Love",
+		"releaseDate": 1978,
+		"genre": "Romance",
+		"advocate": "Hannah"
+	},
+	{
+		"title": "Turtles Rule",
+		"releaseDate": 2099,
+		"genre": "Action",
+		"advocate": "Nate"
+	},
+	{
+		"title": "Her",
+		"releaseDate": 2016,
+		"genre": "Comedy",
+		"advocate": "JohnMark"
+	},
+	{
+		"title": "Rambo",
+		"releaseDate": 1985,
+		"genre": "Action",
+		"advocate": "JohnMark"
+	}
+]
