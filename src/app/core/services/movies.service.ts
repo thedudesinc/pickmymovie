@@ -13,13 +13,13 @@ export class MoviesService {
 	private moviesUrl: string = environment.moviesServiceUrl;
 
 	private movies: Movie[] = [
-		new Movie("Empire Strikes Back", 1985, "Sci-Fi", "Nate"),
-		new Movie("Johnny Trumain", 1990, "Drama", "Nate"),
-		new Movie("Captain America", 2007, "Action", "JohnMark"),
-		new Movie("Die Hard", 1986, "Action", "Nate"),
-		new Movie("Endangered Love", 2001, "Romance", "Hannah"),
-		new Movie("The Hobbit: Part 1", 2015, "Fantasy", "Nate"),
-		new Movie("Star Trek", 2016, "Sci-Fi", "JohnMark"),
+		new Movie(1, "Empire Strikes Back", 1985, "Sci-Fi", "Nate"),
+		new Movie(2, "Johnny Trumain", 1990, "Drama", "Nate"),
+		new Movie(3, "Captain America", 2007, "Action", "JohnMark"),
+		new Movie(4, "Die Hard", 1986, "Action", "Nate"),
+		new Movie(5, "Endangered Love", 2001, "Romance", "Hannah"),
+		new Movie(6, "The Hobbit: Part 1", 2015, "Fantasy", "Nate"),
+		new Movie(7, "Star Trek", 2016, "Sci-Fi", "JohnMark"),
 	];
 
 	constructor(private http: HttpClient) { }
