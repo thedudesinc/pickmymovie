@@ -1,12 +1,21 @@
 import { TestBed, async } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './core/components/header/header.component';
+import { CustomMaterialModule } from './custommaterial.module';
 
 describe('AppComponent', () => {
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
 			declarations: [
-				AppComponent
+				AppComponent,
+				HeaderComponent
 			],
+			imports: [
+				RouterTestingModule,
+				CustomMaterialModule
+			]
 		}).compileComponents();
 	}));
 
