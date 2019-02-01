@@ -12,6 +12,6 @@ addons:
   chrome: stable
 
 script:
-  - npm run test:headless
+  - npm run test-headless
   - npm run build
   - xvfb-run npm run e2e
