@@ -1,3 +1,17 @@
 language: node_js
 node_js:
-  - '11'
+  - "11"
+dist: trusty
+sudo: false
+
+cache:
+  directories:
+    - node_modules
+
+addons:
+  chrome: stable
+
+script:
+  - npm run test:headless
+  - npm run build
+  - xvfb-run npm run e2e
