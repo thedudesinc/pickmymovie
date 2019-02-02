@@ -4,13 +4,39 @@
 	#movieTable {
 		th {
 			padding: 0px 10px;
-		}	
-		td {
-			padding: 0px 10px;
 		}
+		tr.mat-row {
+			td {
+				padding: 0px 10px;
+				overflow: hidden;
+				button {
+					padding: 0 5px;
+					min-width: 20px;
+					left: 35px;
+					-webkit-transition: all 0.25s; /* Safari */
+					transition: all 0.25s;
+					mat-icon {
+						font-size: 1.5em;
+					}
+				}
+			}
+		}
+		
+	}
+	#noMovieText {
+		text-align: center;
 	}
 	#addMovieBtn {
 		display: block;
 		margin: 0 auto;
+	}
+}
+
+.mat-table .mat-row:hover {
+	background: rgba(0, 0, 0, 0.04);
+	td {
+		button {
+			left: 0 !important;
+		}
 	}
 }
