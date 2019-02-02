@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
 
 	@ViewChild(MatTable) table: MatTable<any>;
 	movieList: Movie[] = [];
-	columnsToDisplay: string[] = ['title', 'releaseDate', 'genre', 'advocate'];
+	columnsToDisplay: string[] = ['order', 'title', 'releaseDate', 'genre', 'advocate'];
 
 	constructor(
 		private moviesService: MoviesService,
@@ -27,16 +27,19 @@ export class HomeComponent implements OnInit {
 		});
 	}
 
-	onAddMovieButtonClicked(): void {
+	onAddMovieButtonClicked(): void {	
+		//open dialog box
 		const addMovieDialogRef = this.dialog.open(AddMovieDialogComponent, {
-			data: new Movie("", 2000, "", "")
+			data: new Movie(this.movieList.length + 1, "", 2000, "", "")
 		});
 
 		addMovieDialogRef.afterClosed().subscribe(result => {
-			if(result.title !== "" && result.year !== "" && result.advocate !== "") {
-				this.moviesService.addMovie(result);
+			if(result) {
+				if (result.title !== "" && result.year !== "" && result.advocate !== "") {
+					this.moviesService.addMovie(result);
+				}
+				this.table.renderRows();
 			}
-			this.table.renderRows();
 		});
 	}
 
