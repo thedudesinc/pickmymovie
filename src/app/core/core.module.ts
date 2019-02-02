@@ -5,11 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { CustomMaterialModule } from '../custommaterial.module';
 import { AddMovieDialogComponent } from './components/add-movie-dialog/add-movie-dialog.component';
+import { MovieChosenDialogComponent } from './components/movie-chosen-dialog/movie-chosen-dialog.component';
 
 @NgModule({
 	declarations: [
 		HeaderComponent, 
-		AddMovieDialogComponent
+		AddMovieDialogComponent,
+		MovieChosenDialogComponent
 	],
 	imports: [
 		CommonModule,
@@ -18,10 +20,12 @@ import { AddMovieDialogComponent } from './components/add-movie-dialog/add-movie
 	],
 	exports: [
 		HeaderComponent,
-		AddMovieDialogComponent
+		AddMovieDialogComponent,
+		MovieChosenDialogComponent
 	],
 	entryComponents: [
-		AddMovieDialogComponent
+		AddMovieDialogComponent,
+		MovieChosenDialogComponent
 	]
 })
 export class CoreModule { }

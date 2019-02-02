@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatDialog, MatTable } from '@angular/material';
+import { MatDialog, MatTable, MatSnackBar } from '@angular/material';
 
 import { Movie } from '../core/models/movie';
 import { MoviesService } from '../core/services/movies.service';
 import { AddMovieDialogComponent } from '../core/components/add-movie-dialog/add-movie-dialog.component';
+import { MovieChosenDialogComponent } from '../core/components/movie-chosen-dialog/movie-chosen-dialog.component';
 
 @Component({
 	selector: 'app-home',
@@ -18,10 +19,12 @@ export class HomeComponent implements OnInit {
 
 	constructor(
 		private moviesService: MoviesService,
-		public dialog: MatDialog
+		public dialog: MatDialog,
+		public snackBar: MatSnackBar
 	) { }
 
 	ngOnInit() {
+		//on page load, add default movies
 		this.moviesService.getMovies().subscribe(json => {
 			this.movieList = json;
 		});
@@ -33,6 +36,7 @@ export class HomeComponent implements OnInit {
 			data: new Movie(this.movieList.length + 1, "", 2000, "", "")
 		});
 
+		//subscribe to event that is triggered when dialog is closed
 		addMovieDialogRef.afterClosed().subscribe(result => {
 			if(result) {
 				if (result.title !== "" && result.year !== "" && result.advocate !== "") {
@@ -44,8 +48,26 @@ export class HomeComponent implements OnInit {
 	}
 
 	onRemoveMovieBtnClicked(movieId: number): void {
+		//remove movie from data source
 		this.moviesService.removeMovie(movieId);
+		//refresh table to show change
 		this.table.renderRows();
+	}
+
+	randomlySelectMovie(): void {
+		if(this.movieList.length > 0) {
+			//get movie randomly
+			let selectedMovie = this.movieList[Math.floor(Math.random() * this.movieList.length)];
+
+			//open dialog with result
+			const movieChosenDialogRef = this.dialog.open(MovieChosenDialogComponent, {
+				data: selectedMovie
+			});
+		} else {
+			this.snackBar.open("No movies available!", "Dismiss", {
+				duration: 3000
+			});
+		}		
 	}
 
 }
