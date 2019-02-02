@@ -2,7 +2,7 @@
 <div mat-dialog-content>
 	<p class="mat-body-strong">Title</p>
 	<mat-form-field>
-		<input id="movieTitleInput" matInput [(ngModel)]="data.title">
+		<input id="movieTitleInput" tab-index="0" matInput [(ngModel)]="data.title">
 	</mat-form-field>
 	<p class="mat-body-strong">Release Date</p>
 	<mat-form-field>
@@ -19,5 +19,5 @@
 </div>
 <div mat-dialog-actions>
 	<button mat-raised-button (click)="onCancel()">Cancel</button>
-	<button mat-raised-button [mat-dialog-close]="data" cdkFocusInitial>Submit</button>
+	<button mat-raised-button [mat-dialog-close]="data">Submit</button>
 </div>

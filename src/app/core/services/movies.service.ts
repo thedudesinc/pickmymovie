@@ -33,4 +33,8 @@ export class MoviesService {
 	public addMovie(movie: Movie): void {
 		this.movies.push(movie);
 	}
+
+	public removeMovie(movieId: number): void {
+		this.movies.splice(this.movies.findIndex(movie => movie.order === movieId), 1);
+	}
 }

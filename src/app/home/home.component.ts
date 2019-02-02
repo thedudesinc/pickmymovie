@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
 
 	@ViewChild(MatTable) table: MatTable<any>;
 	movieList: Movie[] = [];
-	columnsToDisplay: string[] = ['order', 'title', 'releaseDate', 'genre', 'advocate'];
+	columnsToDisplay: string[] = ['order', 'title', 'releaseDate', 'genre', 'advocate', 'actions'];
 
 	constructor(
 		private moviesService: MoviesService,
@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
 		});
 	}
 
-	onAddMovieButtonClicked(): void {	
+	onAddMovieBtnClicked(): void {	
 		//open dialog box
 		const addMovieDialogRef = this.dialog.open(AddMovieDialogComponent, {
 			data: new Movie(this.movieList.length + 1, "", 2000, "", "")
@@ -41,6 +41,11 @@ export class HomeComponent implements OnInit {
 				this.table.renderRows();
 			}
 		});
+	}
+
+	onRemoveMovieBtnClicked(movieId: number): void {
+		this.moviesService.removeMovie(movieId);
+		this.table.renderRows();
 	}
 
 }
