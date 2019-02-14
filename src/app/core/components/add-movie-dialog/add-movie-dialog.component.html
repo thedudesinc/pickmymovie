@@ -6,15 +6,21 @@
 	</mat-form-field>
 	<p class="mat-body-strong">Release Date</p>
 	<mat-form-field>
-		<input id="movieReleaseDateInput" matInput [(ngModel)]="data.releaseDate">
+		<input id="releaseDatePicker" matInput [max]="currentDate" [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="data.releaseDate">
+		<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+		<mat-datepicker #picker></mat-datepicker>
 	</mat-form-field>
 	<p class="mat-body-strong">Genre</p>
 	<mat-form-field>
-		<input id="movieGenreInput" matInput [(ngModel)]="data.genre">
+		<mat-select placeholder="Choose a genre">
+			<mat-option *ngFor="let genre of genreList" [value]="genre">
+				{{genre}}
+			</mat-option>
+		</mat-select>
 	</mat-form-field>
 	<p class="mat-body-strong">Advocate</p>
 	<mat-form-field>
-		<input id="movieAdvocateInput" matInput [(ngModel)]="data.advocate">
+		<input id="movieAdvocateInput" matInput [(ngModel)]="data.advocateId">
 	</mat-form-field>
 </div>
 <div mat-dialog-actions>
