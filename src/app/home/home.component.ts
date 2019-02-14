@@ -5,6 +5,8 @@ import { Movie } from '../core/models/movie';
 import { MoviesService } from '../core/services/movies.service';
 import { AddMovieDialogComponent } from '../core/components/add-movie-dialog/add-movie-dialog.component';
 import { MovieChosenDialogComponent } from '../core/components/movie-chosen-dialog/movie-chosen-dialog.component';
+import { Genre } from '../core/models/genre';
+
 
 @Component({
 	selector: 'app-home',
@@ -15,7 +17,8 @@ export class HomeComponent implements OnInit {
 
 	@ViewChild(MatTable) table: MatTable<any>;
 	movieList: Movie[] = [];
-	columnsToDisplay: string[] = ['order', 'title', 'releaseDate', 'genre', 'advocate', 'actions'];
+	columnsToDisplay: string[] = ['title', 'releaseDate', 'genre', 'advocate', 'actions'];
+	Genre = Genre;
 
 	constructor(
 		private moviesService: MoviesService,
@@ -33,25 +36,33 @@ export class HomeComponent implements OnInit {
 	onAddMovieBtnClicked(): void {	
 		//open dialog box
 		const addMovieDialogRef = this.dialog.open(AddMovieDialogComponent, {
-			data: new Movie(this.movieList.length + 1, "", 2000, "", "")
+			data: new Movie(this.movieList.length + 1, "", 2000, 1, "")
 		});
 
 		//subscribe to event that is triggered when dialog is closed
 		addMovieDialogRef.afterClosed().subscribe(result => {
 			if(result) {
 				if (result.title !== "" && result.year !== "" && result.advocate !== "") {
-					this.moviesService.addMovie(result);
+					this.moviesService.addMovie(result).subscribe(response => {
+						this.moviesService.getMovies().subscribe(movies => {
+							this.movieList = movies;
+						})
+						this.table.renderRows();
+					});
 				}
-				this.table.renderRows();
 			}
 		});
 	}
 
 	onRemoveMovieBtnClicked(movieId: number): void {
 		//remove movie from data source
-		this.moviesService.removeMovie(movieId);
-		//refresh table to show change
-		this.table.renderRows();
+		this.moviesService.removeMovie(movieId).subscribe(response => {
+			//refresh table to show change
+			this.moviesService.getMovies().subscribe(movies => {
+				this.movieList = movies;
+			})
+			this.table.renderRows();
+		});
 	}
 
 	randomlySelectMovie(): void {

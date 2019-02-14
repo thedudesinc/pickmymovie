@@ -1,9 +1,11 @@
+import { Genre } from './genre';
+
 export class Movie {
 	constructor(
-		public order: number,
+		public id: number,
 		public title: string,
 		public releaseDate: number,
-		public genre: string,
-		public advocate: string
+		public genre: Genre,
+		public advocateId: string
 	) {}
 }

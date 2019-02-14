@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http'; 
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
@@ -22,7 +23,8 @@ import { CustomMaterialModule } from './custommaterial.module';
 		BrowserAnimationsModule,
 		CustomMaterialModule,
 		HttpClientModule,
-		FormsModule
+		FormsModule,
+		CommonModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

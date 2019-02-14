@@ -1,11 +1,6 @@
 <div id="movieTableContainer">
 	<table id="movieTable" mat-table [dataSource]="movieList" class="mat-elevation-z4">
 		<!-- COLUMNS -->
-		<ng-container matColumnDef="order">
-			<th mat-header-cell *matHeaderCellDef> # </th>
-			<td mat-cell *matCellDef="let movie"> {{ movie.order }} </td>
-		</ng-container>
-
 		<ng-container matColumnDef="title">
 			<th mat-header-cell *matHeaderCellDef> Title </th>
 			<td mat-cell *matCellDef="let movie"> {{ movie.title }} </td>
@@ -13,23 +8,23 @@
 
 		<ng-container matColumnDef="releaseDate">
 			<th mat-header-cell *matHeaderCellDef> Release Date </th>
-			<td mat-cell *matCellDef="let movie"> {{ movie.releaseDate }} </td>
+			<td mat-cell *matCellDef="let movie"> {{ movie.releaseDate | date }} </td>
 		</ng-container>
 
 		<ng-container matColumnDef="genre">
 			<th mat-header-cell *matHeaderCellDef> Genre </th>
-			<td mat-cell *matCellDef="let movie"> {{ movie.genre }} </td>
+			<td mat-cell *matCellDef="let movie"> {{ Genre[movie.genre] }} </td>
 		</ng-container>
 
 		<ng-container matColumnDef="advocate">
 			<th mat-header-cell *matHeaderCellDef> Advocate </th>
-			<td mat-cell *matCellDef="let movie"> {{ movie.advocate }} </td>
+			<td mat-cell *matCellDef="let movie"> {{ movie.advocateId }} </td>
 		</ng-container>
 
 		<ng-container matColumnDef="actions">
 			<th mat-header-cell *matHeaderCellDef> </th>
 			<td mat-cell *matCellDef="let movie">
-				<button mat-button id="removeBtn{{movie.order}}" attr.aria-labelledby="remove {{movie.title}}" (click)="onRemoveMovieBtnClicked(movie.order)">
+				<button mat-button id="removeBtn{{movie.id}}" attr.aria-labelledby="remove {{movie.title}}" (click)="onRemoveMovieBtnClicked(movie.id)">
 					<mat-icon color="warn">delete_outline</mat-icon>
 				</button>
 			</td>
