@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { environment } from 'src/environments/environment.prod';
+import { environment } from 'src/environments/environment';
 import { Movie } from '../models/movie';
 
 @Injectable({
@@ -28,6 +28,6 @@ export class MoviesService {
 	}
 
 	public removeMovie(movieId: number): Observable<any> {
-		return this.http.delete(this.moviesUrl + `movies/${movieId}`).pipe(map(data => data));
+		return this.http.delete(this.moviesUrl + `movies/${movieId}`);
 	}
 }

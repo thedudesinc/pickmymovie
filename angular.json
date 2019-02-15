@@ -55,18 +55,29 @@
                   "maximumError": "5mb"
                 }
               ]
-            }
+			},
+			"local": {
+				"fileReplacements": [
+					{
+						"replace": "src/environments/environment.ts",
+						"with": "src/environments/environment.ts"
+					}
+				]
+			}
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "pickmymovie:build"
+            "browserTarget": "pickmymovie:build:local"
           },
           "configurations": {
             "production": {
               "browserTarget": "pickmymovie:build:production"
-            }
+			},
+			"local": {
+				"browserTarget": "pickmymovie:build:local"
+			}
           }
         },
         "extract-i18n": {
@@ -120,7 +131,10 @@
           "configurations": {
             "production": {
               "devServerTarget": "pickmymovie:serve:production"
-            }
+			},
+			"local": {
+				"devServerTarget": "pickmymovie:serve:local"
+			}
           }
         },
         "lint": {

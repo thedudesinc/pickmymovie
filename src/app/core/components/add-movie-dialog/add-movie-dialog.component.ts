@@ -12,14 +12,11 @@ export class AddMovieDialogComponent implements OnInit {
 
 	currentDate: Date = new Date(Date.now());
 	Genre = Genre;
-	genreList;
 
 	constructor(
 		public dialogRef: MatDialogRef<AddMovieDialogComponent>,
 		@Inject(MAT_DIALOG_DATA) public data: Movie
-	) {
-		this.genreList = Object.keys(this.Genre).filter(f => isNaN(Number(f)));
-	}
+	) {	}
 
 	ngOnInit() {
 	}

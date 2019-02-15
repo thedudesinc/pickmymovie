@@ -1,3 +1,14 @@
-export enum Genre {
-	Action, Adventure, Comedy, Crime, Drama, Historial, Horror, Musical, SciFi, War, Western, Other
-}
+export const Genre: string[] = [
+	"Action", 
+	"Adventure", 
+	"Comedy", 
+	"Crime",
+	"Drama", 
+	"Historial", 
+	"Horror", 
+	"Musical", 
+	"SciFi", 
+	"War", 
+	"Western", 
+	"Other"
+]

@@ -12,8 +12,8 @@
 	</mat-form-field>
 	<p class="mat-body-strong">Genre</p>
 	<mat-form-field>
-		<mat-select placeholder="Choose a genre">
-			<mat-option *ngFor="let genre of genreList" [value]="genre">
+		<mat-select placeholder="Choose a genre" [(value)]="data.genre">
+			<mat-option *ngFor="let genre of Genre" [value]="Genre.indexOf(genre)">
 				{{genre}}
 			</mat-option>
 		</mat-select>

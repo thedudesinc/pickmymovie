@@ -1,4 +1,4 @@
 export const environment = {
 	production: true,
-	moviesServiceUrl: "https://localhost:44326/api/"
+	moviesServiceUrl: "http://jjoneshome.hopto.org:778/api/"
 };

@@ -36,13 +36,14 @@ export class HomeComponent implements OnInit {
 	onAddMovieBtnClicked(): void {	
 		//open dialog box
 		const addMovieDialogRef = this.dialog.open(AddMovieDialogComponent, {
-			data: new Movie(this.movieList.length + 1, "", 2000, 1, "")
+			data: new Movie(0, "", 2000, 1, "")
 		});
 
 		//subscribe to event that is triggered when dialog is closed
 		addMovieDialogRef.afterClosed().subscribe(result => {
 			if(result) {
 				if (result.title !== "" && result.year !== "" && result.advocate !== "") {
+					console.log(result.genre);
 					this.moviesService.addMovie(result).subscribe(response => {
 						this.moviesService.getMovies().subscribe(movies => {
 							this.movieList = movies;
